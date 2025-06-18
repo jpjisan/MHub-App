@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Header({ data }) {
-  // console.log("header", data);
+  console.log("header", data);
 
   return (
     <div
@@ -25,9 +25,7 @@ function Header({ data }) {
         backgroundSize: "cover",
       }}
     >
-      <h1
-        className="text-white  text-4xl sm:text-xl md:text-5xl  font-bold"
-      >
+      <h1 className="text-white  text-4xl sm:text-xl md:text-5xl  font-bold">
         {data.title || data.original_title || data.name || data.original_name}
       </h1>
       <p className="text-white tracking-tight md:w-[50%]  mt-2.5">
@@ -43,7 +41,10 @@ function Header({ data }) {
           <i className=" text-yellow-400 ri-movie-2-fill"></i> {data.media_type}
         </p>
       </div>
-      <Link className=" bg-[#6556cd] py-2 px-5 rounded mt-2 ">
+      <Link
+        to={`/${data.media_type}/details/${data.id}/trailer`}
+        className=" bg-[#6556cd] py-2 px-5 rounded mt-2 "
+      >
         {" "}
         Watch Trailer
       </Link>
